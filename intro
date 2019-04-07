@@ -32,4 +32,51 @@ str="a000 c000 b000 3000 "
 /[0-9]000/   පළමු සංකේතය සඳහා ඕනෑම ඉලක්කමක් සමග ගැලපීමට.
 
 #5 Repeating Characters.
-   
+ /[a-z]+/g     අනන්තය දක්වා repeating වෙමින් ගැලපීමට.
+/[a-z]{6}/g    a-z පරාසයේ සංඛේත repeating හය බැගින් වෙන්වෙමින් ගැලපීමට.
+/[a-z]{5,8}/g  a-z පරාසයේ සංඛේත repeating 5-8 පරාස බැගින් වෙන්වෙමින් ගැලපීමට. උපරිම අගය ගැලපීමට වැඩි ප්‍රවනතාවයක් ඇත.
+/[a-z]{5,}/g   a-z පරාසයේ සංඛේත repeating 5-අනන්තය දක්වා පරාස බැගින් වෙන්වෙමින් ගැලපීමට. එකදිගට අකුරු පහට වඩා ලියු විට ගැලපේ.  
+
+#6 - Metacharacters (RegEx කේතනය කිරීමට සාමාන්‍ය අකුරු සංඛේත විශේෂ කර යොදා ගැනීම)
+- \d  match any digit character (same as [0-9])
+- \w match any word character (a-z , A-Z , 0-9 ,  _ )
+- \s  match a whitespace character (spaces , tabs etc)
+- \t  match a tab character only
+
+මෙලෙස අකුරු සංකේත විශේෂ කිරීමට අකුරේ මුලට \ සලකුණ යොදයි.
+d - matches the literal character , 'd'
+\d - matches any digit character(same as [0-9]) 
+
+
+ \d -     [0-9] ඉලක්කම් එක බැගින් වෙන්වී ගැලපේ.
+ \d{3}    [0-9] ඉලක්කම් තුන බැගින් වෙන්වී ගැලපේ.
+ \d\s\w   [0-9][space or tab ][a-z , A-Z , 0-9 ,  _ ] 
+ 
+
+#7 Special Characters (ඉහල මෙම සංකේත භාවිතා කර ඇත)
+ '+'   The one-or-more quantifier
+ '\'    The escape character
+ '[]'    The character set
+ '[^]'  The negative symbol in a character set
+
+(අලුතින් දක්වන සංකේත)
+'?'    The zero-or-one quantifier (පරිච්ඡේදකය) (make a preceding char optional)
+      ප්‍රශ්නාර්ථ ලකුණට පෙර ඇති සංකේතය ඇති නැති යන අවස්ථා දෙකේම ගැලපේ.
+      ගැලපෙන්නේ පෙර පිහිටි එක සංකේතයකට පමණි. repeating සංකේත සමග ක්‍රියා නොකරයි. 
+'.'     Any character whatsoever (except the newline character)
+'*'    The 0-or-more quantifier(පරිච්ඡේදකය) (a bit like +)
+      මෙය '+' සලකුනෙනේ කෙරෙන කාරියට බොහෝ දුරට සමානය.
+
+/a[a-z]?/g    ගැලපීම් aa  ,as , a ... තනි a අකුරට ද ගැලපේ   
+/car./g      ගැලපීම් car& , car2  මෙහිදී '.' ලකුණ ඕනෙම සංකේතයක් සමග ගැලපේ.
+/.+/g       match with anything any character long string
+
+Special character RegEx ලෙස කේතනය කිරීමේදී  escape character '\' යොදා ගනී.
+උදා :
+  /\*/g  තරු ලකුණ ගැලපීමේදී. 
+  
+  
+#8 - Starting & Ending Patterns  
+
+  
+
