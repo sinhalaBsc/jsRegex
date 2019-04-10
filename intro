@@ -114,4 +114,47 @@ const patterns ={
 
 #13 - Testing a RegEx Pattern
 
+RegEx patterns සමඟ string ගලපන ආකාරය පහත උදාහරණයෙන් දැක්වේ.
 
+    const patterns ={
+      telephone:/^\d{11}$/
+    };
+
+    function validation(data,regex){
+      var r=regex.test(data);
+      // true or false ලෙස පිළිතුර ලැබේ  = අපගේ regex අවශ්‍යතාවය .test(ගලපවන string එක);
+      console.log(r);
+    }
+
+    const tel = "12345678911";
+    validation(tel , patterns.telephone);
+
+ඉහත උදාහරණයේ පරිදි test method එක මගින් RegEx ගැලපීම පරික්ෂා කල හැකිය. 
+
+ #14 - Matching a Username
+ 
+ telephone: /^\d{11}$/
+ ^$මුල සිට අග දක්වා \d digit පමණි  {11} මෙවැනි සංකේත 11 ක් නම් ගැලපුම.
+ 
+ username: /^[a-z\d]{5,12}$/i
+ ^$මුල සිට අග දක්වා a-z ඉංග්‍රීසි අකුරු හෝ  \d digit {5,12} මෙවැනි සංකේත 5-12 අතර නම් ගැලපුම.
+ 
+ password: /^[\w@-]{8,12}$/
+ ^$මුල සිට අග දක්වා w =[a-z හෝ  A-Z හෝ  0-9 හෝ   _ ] හෝ  @ සලකුණ හෝ - සලකුණ {8,12} මෙවැනි සංකේත 8-12 අතර නම් ගැලපුම .  
+ 
+ slug : /^[a-z\d-]{8,20}$/
+ ^$මුල සිට අග දක්වා a-z ඉංග්‍රීසි අකුරු හෝ \d digit හෝ   - සලකුණ {8,20} මෙවැනි සංකේත 8-20 අතර නම් ගැලපුම.  
+
+
+#15 - Email RegEx Pattern
+    1           2         3         4
+(yourname) @ (domain).(extension)(.again)
+(theboss) @ (thenetninja).(co)(.uk)
+
+1. any letters , numbers , dots, and/or hyphens   
+2. any letters , numbers and/or hyphens            
+3. any letters                                    
+4. a dot(.) then any letters                       
+
+/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+ඉහත ආකාරයෙන් එකෙන් එක RegEx කොටස් වලට වරහන් දීමෙන් වරහන් සම්පුර්ණ RegEx pattern එකට බලපෑමක් ඇති නොවේ.
